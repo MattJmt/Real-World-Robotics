@@ -1,0 +1,98 @@
+<mujoco model="simple_finger">
+    <compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
+    <option timestep="0.005" gravity="0 0 0" iterations="50" integrator="Euler"/>
+
+    <asset>
+        <!-- Meshes for physical links -->
+        <mesh name="link_A_mesh" file="assets/link_A.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="link_B_mesh" file="assets/link_B.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="link_C_mesh" file="assets/link_C.stl" scale="0.001 0.001 0.001"/>
+        <!-- Meshes for visualization links -->
+        <mesh name="link_A_viz_mesh" file="assets/link_A_viz.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="link_B_viz_mesh" file="assets/link_B_viz.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="link_C_viz_mesh" file="assets/link_C_viz.stl" scale="0.001 0.001 0.001"/>
+    
+        <!-- adjust scaling. stl in mm and not in m, here we choose metric system, eg, lengh 1 = 1 meter-->
+    </asset>
+
+    <default>
+        <!-- Default geom properties -->
+        <geom rgba="1 1 1 1" type="mesh" density="662" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1"/>
+        <!-- Default joint properties -->
+        <joint type="hinge" limited="true" damping="0.05" armature="0.001" margin="0.01" frictionloss="0.001"/>
+        <!-- Default actuator properties -->
+        <position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2."/>
+        <!-- Default tendon properties -->
+        <tendon limited="true" range="-0.001 0.001"/>
+    
+    </default>
+
+    <worldbody>
+        <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
+        
+        <!-- Base link -->
+        <body name="link_A" pos="0 0 0">
+            <!-- Assuming the base link is fixed to the world -->
+            <!-- <joint type="free" name="fixed" /> --> <!-- removing joint type fixes it in space (0 DOF) -->
+            <!-- physical links are blue and transparent, visual links are green-->
+            <geom type="mesh" mesh="link_A_mesh" rgba="1 1 0 0.5" mass = "0.1"/>
+            <!-- <geom type="mesh" mesh="link_A_viz_mesh" rgba="0.1 1 0.1 1" contype="0" conaffinity="0"/> -->
+
+            <!-- Virtual link for first rolling joint -->
+            <body name="virtual_link_1" pos="0 0 0"> <!-- Adjust the position based on your requirement -->
+                <joint type="hinge" name="virtual_joint_1" axis="0 0 1" pos="0.05 0.01 0" range="-60 1"/>               
+                <inertial pos="0.06 0.01 0" mass="1e-6" diaginertia="1e-15 1e-15 1e-15" /> 
+
+                <!-- Second link -->
+                <body name="link_B" pos="0 0 0">
+                    <joint type="hinge" name="joint_1" axis="0 0 1" pos="0.07 0.01 0.2" range="-60 1"/>
+                    <geom type="mesh" mesh="link_B_mesh" rgba="1 1 0 0.5" mass = "0.1"/>
+                    <!-- <geom type="mesh" mesh="link_B_viz_mesh" rgba="0.1 1 0.1 1"  contype="0" conaffinity="0"/> -->
+
+                    <!-- Virtual link for second rolling joint -->
+                    <body name="virtual_link_2" pos="0 0 0"> <!-- Adjust the position based on your requirement -->
+                        <joint type="hinge" name="virtual_joint_2" axis="0 0 1" pos="0.1 0.01 0.2" range="-50 1"/>
+                        <inertial pos="0.11 0.01 0.2" mass="1e-6" diaginertia="1e-15 1e-15 1e-15" /> 
+
+                        <!-- Third link -->
+                        <body name="link_C" pos="0 0 0">
+                            <joint type="hinge" name="joint_2" axis="0 0 1" pos="0.12 0.01 0" range="-50 1"/>
+                            <geom type="mesh" mesh="link_C_mesh" rgba="1 1 0 0.5" mass="10"/>
+                            <!-- <geom type="mesh" mesh="link_C_viz_mesh" rgba="0.1 1 0.1 1"  contype="0" conaffinity="0"/> -->
+
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <contact>
+        <!-- neighboring bodies are excluded from contact calculation -->
+        <exclude body1="link_A" body2="virtual_link_1"/>
+        <exclude body1="link_A" body2="link_B"/>
+        <exclude body1="virtual_link_1" body2="link_B"/>
+        <exclude body1="link_B" body2="virtual_link_2"/>
+        <exclude body1="link_B" body2="link_C"/>
+        <exclude body1="virtual_link_2" body2="link_C"/>
+    </contact>
+
+    <tendon>
+        <!-- Constrain virtual joint 1 to have the same angle as joint 1 -->
+        <fixed name="constraint_joint_1">
+            <joint joint="virtual_joint_1" coef="1"/>
+            <joint joint="joint_1" coef="-1"/>
+        </fixed>
+        <!-- Constrain virtual joint 2 to have the same angle as joint 2 -->
+        <fixed name="constraint_joint_2">
+            <joint joint="virtual_joint_2" coef="1"/>
+            <joint joint="joint_2" coef="-1"/>
+        </fixed>
+    </tendon>
+
+    <actuator>
+        <position joint="joint_1" kp="1" ctrlrange="-0.78 0"/> <!-- ctrl in radiant / 2 (because actually 2 joints per real joint) -->
+        <position joint="joint_2" kp="1" ctrlrange="-0.78 0"/> <!-- no idea why its in radian here and not degrees-->
+    </actuator>
+    
+</mujoco>

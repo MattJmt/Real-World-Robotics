@@ -1,0 +1,6 @@
+<launch>
+  <!-- <node name="grasping_gui_node" pkg="grasping_gui" type="grasping_gui_node.py" output="screen"/> -->
+  <node name="grasping_interpolate_node" pkg="grasping_gui" type="grasping_interpolation_node.py" output="screen"/>
+  <!-- <node name="gripper_controller_node" pkg="teleoperation" type="gripper_controller_node.py" output="screen"/> -->
+  <node name="mujoco_ros_bridge" pkg="teleoperation" type="mujoco_ros_bridge.py" output="screen"/>
+</launch>

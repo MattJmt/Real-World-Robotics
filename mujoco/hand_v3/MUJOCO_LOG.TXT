@@ -1,0 +1,3 @@
+Wed Dec  6 16:03:40 2023
+WARNING: mju_openResource: unknown file 'hand_v2.xml'
+

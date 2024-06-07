@@ -1,0 +1,18 @@
+<launch>
+
+    <!-- Node for the robot control script -->
+    <node name="franka_script_node" pkg="franka_arm" type="franka_script.py" output="screen">
+        <!-- Add any ROS parameters if needed -->
+        <!-- <param name="some_parameter" value="some_value" /> -->
+    </node>
+
+    <node name="franka_input_node" pkg="franka_arm" type="franka_input.py" output="screen">
+        <!-- Add any ROS parameters if needed -->
+        <!-- <param name="some_parameter" value="some_value" /> -->
+    </node>
+    
+
+    <!-- You can add more nodes here if your application requires them -->
+    <!-- Example: -->
+    <!-- <node name="some_other_node" pkg="some_other_package" type="some_other_script.py" /> -->
+</launch>

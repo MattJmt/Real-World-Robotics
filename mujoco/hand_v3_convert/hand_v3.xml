@@ -1,0 +1,514 @@
+<!-- TODO more usefull default classes -->
+
+<mujoco model="hand_v1">
+    <compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
+    <option timestep="0.005" gravity="0 0 -9.81" iterations="50" integrator="Euler"/>
+
+    <asset>
+        <!-- Meshes for physical links (no visual links) -->
+        <mesh name="palm_bottom" file="mesh/palm_bottom.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_top" file="mesh/palm_top.stl" scale="0.001 0.001 0.001"/>
+        <!-- <mesh name="palm_top_smooth" file="mesh/palm_top_smooth.stl" scale="0.001 0.001 0.001"/> -->
+        <mesh name="palm_side_1" file="mesh/palm_side_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_side_2" file="mesh/palm_side_2.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="pointer_1" file="mesh/pointer_0.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="pointer_2" file="mesh/pointer_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="pointer_3" file="mesh/pointer_2.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="pointer_4" file="mesh/pointer_3.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="middle_1" file="mesh/middle_0.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="middle_2" file="mesh/middle_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="middle_3" file="mesh/middle_2.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="middle_4" file="mesh/middle_3.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="pinky_base" file="mesh/pinky_base.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="pinky_1" file="mesh/pinky_0.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="pinky_2" file="mesh/pinky_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="pinky_3" file="mesh/pinky_2.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="pinky_4" file="mesh/pinky_3.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="dynamixel" file="mesh/dynamixel.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="thumb_1" file="mesh/thumb_0.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="thumb_2" file="mesh/thumb_1.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="thumb_3" file="mesh/thumb_2.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="thumb_4" file="mesh/thumb_3.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="palm_smooth_palm_0"  file="mesh/palm_smooth/palm_smooth_part_.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_10" file="mesh/palm_smooth/palm_smooth_part__10.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_11" file="mesh/palm_smooth/palm_smooth_part__11.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_12" file="mesh/palm_smooth/palm_smooth_part__12.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_13" file="mesh/palm_smooth/palm_smooth_part__13.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_14" file="mesh/palm_smooth/palm_smooth_part__14.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_15" file="mesh/palm_smooth/palm_smooth_part__15.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_16" file="mesh/palm_smooth/palm_smooth_part__16.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_17" file="mesh/palm_smooth/palm_smooth_part__17.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_18" file="mesh/palm_smooth/palm_smooth_part__18.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_19" file="mesh/palm_smooth/palm_smooth_part__19.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_1"  file="mesh/palm_smooth/palm_smooth_part__1.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_20" file="mesh/palm_smooth/palm_smooth_part__20.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_21" file="mesh/palm_smooth/palm_smooth_part__21.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_22" file="mesh/palm_smooth/palm_smooth_part__22.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_23" file="mesh/palm_smooth/palm_smooth_part__23.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_24" file="mesh/palm_smooth/palm_smooth_part__24.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_25" file="mesh/palm_smooth/palm_smooth_part__25.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_26" file="mesh/palm_smooth/palm_smooth_part__26.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_27" file="mesh/palm_smooth/palm_smooth_part__27.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_28" file="mesh/palm_smooth/palm_smooth_part__28.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_29" file="mesh/palm_smooth/palm_smooth_part__29.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_2"  file="mesh/palm_smooth/palm_smooth_part__2.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_30" file="mesh/palm_smooth/palm_smooth_part__30.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_31" file="mesh/palm_smooth/palm_smooth_part__31.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_32" file="mesh/palm_smooth/palm_smooth_part__32.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_33" file="mesh/palm_smooth/palm_smooth_part__33.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_34" file="mesh/palm_smooth/palm_smooth_part__34.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_35" file="mesh/palm_smooth/palm_smooth_part__35.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_36" file="mesh/palm_smooth/palm_smooth_part__36.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_37" file="mesh/palm_smooth/palm_smooth_part__37.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_38" file="mesh/palm_smooth/palm_smooth_part__38.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_39" file="mesh/palm_smooth/palm_smooth_part__39.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_3"  file="mesh/palm_smooth/palm_smooth_part__3.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_40" file="mesh/palm_smooth/palm_smooth_part__40.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_41" file="mesh/palm_smooth/palm_smooth_part__41.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_42" file="mesh/palm_smooth/palm_smooth_part__42.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_43" file="mesh/palm_smooth/palm_smooth_part__43.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_44" file="mesh/palm_smooth/palm_smooth_part__44.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_45" file="mesh/palm_smooth/palm_smooth_part__45.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_46" file="mesh/palm_smooth/palm_smooth_part__46.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_47" file="mesh/palm_smooth/palm_smooth_part__47.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_48" file="mesh/palm_smooth/palm_smooth_part__48.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_49" file="mesh/palm_smooth/palm_smooth_part__49.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_4"  file="mesh/palm_smooth/palm_smooth_part__4.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_50" file="mesh/palm_smooth/palm_smooth_part__50.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_51" file="mesh/palm_smooth/palm_smooth_part__51.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_52" file="mesh/palm_smooth/palm_smooth_part__52.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_53" file="mesh/palm_smooth/palm_smooth_part__53.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_54" file="mesh/palm_smooth/palm_smooth_part__54.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_55" file="mesh/palm_smooth/palm_smooth_part__55.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_56" file="mesh/palm_smooth/palm_smooth_part__56.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_57" file="mesh/palm_smooth/palm_smooth_part__57.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_58" file="mesh/palm_smooth/palm_smooth_part__58.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_59" file="mesh/palm_smooth/palm_smooth_part__59.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_5"  file="mesh/palm_smooth/palm_smooth_part__5.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_6"  file="mesh/palm_smooth/palm_smooth_part__6.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_7"  file="mesh/palm_smooth/palm_smooth_part__7.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_8"  file="mesh/palm_smooth/palm_smooth_part__8.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="palm_smooth_palm_9"  file="mesh/palm_smooth/palm_smooth_part__9.stl" scale="0.001 0.001 0.001"/>
+        
+    
+        <!-- adjust scaling. stl in mm and not in m, here we choose metric system, eg, lengh 1 = 1 meter-->
+    </asset>
+
+    <default >
+        <default class="class1">
+            <!-- Default geom properties -->
+            <geom rgba="0.4 0.6 0.5 1" type="mesh" density="662" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1"/>
+            <!-- Default joint properties -->
+            <joint type="hinge" limited="true" damping="0.05" armature="0.001" margin="0.01" frictionloss="0.001"/>
+            <!-- Default actuator properties -->
+            <position ctrllimited="true" forcelimited="true" forcerange="-000.1 000.1" kp="2."/>
+            <!-- Default tendon properties -->
+        </default>
+    
+        <default class="class2">
+            <!-- Default geom properties -->
+            <geom rgba="0.7 0.3 0.3 1" type="mesh" density="662" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1"/>
+            <!-- Default joint properties -->
+            <joint type="hinge" limited="true" damping="0.05" stiffness="10" armature="0.001" margin="0.01" frictionloss="0.001"/>
+            <!-- Default actuator properties -->
+            <position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2."/>
+        </default>
+
+        <default class="wobble">
+            <!-- Default geom properties -->
+            <geom rgba="0.7 0.3 0.3 1" type="mesh" density="662" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1"/>
+            <!-- Default joint properties -->   
+            <joint type="hinge" limited="true" damping="2" stiffness="1" armature="0.001" margin="0.01" frictionloss="0.001" range="-7.5 7.5"/>
+            <!-- Default actuator properties -->
+            <position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2."/>
+        </default>
+
+        <position ctrllimited="true" forcelimited="true" forcerange="-2 2" kp="2."/>
+        <joint type="hinge" limited="true" damping="0.05" armature="0.01" margin="0.01" frictionloss="0.001"/>
+        <!-- Default tendon properties -->
+        <tendon limited="true" range="-0.001 0.001"/>
+
+    </default>
+
+
+    <worldbody>
+        <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
+
+        <!-- sphere in hand -->
+        
+        <!-- Hand: Base link, palm 20 180 0" -->
+        <body name="Palm" pos="0 0 0" euler="20 180 0">
+            <!-- Palm geoms-->
+            <geom type="mesh" mesh="palm_bottom" mass = "0.1" class="class1"/>
+            <geom type="mesh" mesh="palm_top" mass = "0.1" class="class1"/>
+            <geom type="mesh" mesh="palm_side_1" mass = "0.1" class="class1"/>
+            <geom type="mesh" mesh="palm_side_2" mass = "0.1" class="class1"/>
+
+            <!-- smooth part: -->
+            <geom type="mesh" mesh="palm_smooth_palm_0" mass="0.001" class="class1"/>  
+            <geom type="mesh" mesh="palm_smooth_palm_10" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_11" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_12" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_13" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_14" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_15" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_16" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_17" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_18" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_19" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_1" mass="0.001" class="class1"/>  
+            <geom type="mesh" mesh="palm_smooth_palm_20" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_21" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_22" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_23" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_24" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_25" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_26" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_27" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_28" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_29" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_2" mass="0.001" class="class1"/>  
+            <geom type="mesh" mesh="palm_smooth_palm_30" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_31" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_32" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_33" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_34" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_35" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_36" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_37" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_38" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_39" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_3" mass="0.001" class="class1"/>  
+            <geom type="mesh" mesh="palm_smooth_palm_40" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_41" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_42" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_43" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_44" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_45" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_46" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_47" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_48" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_49" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_4" mass="0.001" class="class1"/>  
+            <geom type="mesh" mesh="palm_smooth_palm_50" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_51" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_52" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_53" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_54" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_55" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_56" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_57" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_58" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_59" mass="0.001" class="class1"/> 
+            <geom type="mesh" mesh="palm_smooth_palm_5" mass="0.001" class="class1"/>  
+            <geom type="mesh" mesh="palm_smooth_palm_6" mass="0.001" class="class1"/>  
+            <geom type="mesh" mesh="palm_smooth_palm_7" mass="0.001" class="class1"/>  
+            <geom type="mesh" mesh="palm_smooth_palm_8" mass="0.001" class="class1"/>  
+            <geom type="mesh" mesh="palm_smooth_palm_9" mass="0.001" class="class1"/>  
+
+            <!-- Pointer 2Dof ############################################################################################################-->
+            <geom type="mesh" mesh="pointer_1" mass = "0.05" class="class1"/>
+
+            <!-- Virtual link for first rolling joint -->
+            <body name="pointer_virtual_link_1" pos="0 0 0"> 
+                <joint type="hinge" name="pointer_virtual_joint_1" axis="0.91 -0.42 0" pos="0.038165 0.0265988 -0.010" range="-5 60" damping="0.25"/>               
+                <inertial pos="0.038165 0.0265988 -0.010" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                <!-- Second link -->
+                <body name="pointer_2" pos="0 0 0">
+                    <joint type="hinge" name="pointer_joint_1" axis="0.91 -0.42 0" pos="0.0466173 0.0447249 -0.01" range="-5 60" damping="0.25"/> 
+                    <geom type="mesh" mesh="pointer_2" class="class2" mass = "0.0095"/>
+                    <!-- Virtual link for second rolling joint -->
+                    <body name="pointer_virtual_link_2" pos="0 0 0"> 
+                        <joint type="hinge" name="pointer_virtual_joint_2" axis="0.91 -0.42 0" pos="0.0571828 0.0673826 -0.01" range="-5 45"/>               
+                        <inertial pos="0.0571828 0.0673826 -0.01" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                        <!-- Third link -->
+                        <body name="pointer_3" pos="0 0 0">
+                            <joint type="hinge" name="pointer_joint_2" axis="0.91 -0.42 0" pos="0.0656351 0.0855088 -0.01" range="-5 45"/> 
+                            <geom type="mesh" mesh="pointer_3" class="class2" mass = "0.00712"/>
+                            <!-- Virtual link for third rolling joint -->
+                            <body name="pointer_virtual_link_3" pos="0 0 0"> 
+                                <joint type="hinge" name="pointer_virtual_joint_3" axis="0.91 -0.42 0" pos="0.0698613 0.0945719 -0.01" range="-5 45"/>               
+                                <inertial pos="0.0698613 0.0945719 -0.01" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                                <!-- Fourth link -->
+                                <body name="pointer_4" pos="0 0 0">
+                                    <joint type="hinge" name="pointer_joint_3" axis="0.91 -0.42 0" pos="0.0783137 0.112698 -0.01" range="-5 45"/> 
+                                    <geom type="mesh" mesh="pointer_4" class="class2" mass = "0.0065"/>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+
+
+            <!-- Middle finger 2Dof ############################################################################################################-->
+            <geom type="mesh" mesh="middle_1" mass = "0.1" class="class1"/>
+
+            <!-- Virtual link for first rolling joint -->
+            <body name="middle_virtual_link_1" pos="0 0 0"> 
+                <joint type="hinge" name="middle_virtual_joint_1" axis="1 0 0" pos="0.0 0.0368333 -0.01" range="-5 60" damping="0.25"/>               
+                <inertial pos="0.0 0.0368333 -0.01" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                <!-- Second link -->
+                <body name="middle_2" pos="0 0 0">
+                    <joint type="hinge" name="middle_joint_1" axis="1 0 0" pos="0.008 0.0568333 -0.01" range="-5 60" damping="0.25"/> 
+                    <geom type="mesh" mesh="middle_2" class="class2" mass = "0.0095"/>
+                    <!-- Virtual link for second rolling joint -->
+                    <body name="middle_virtual_link_2" pos="0 0 0"> 
+                        <joint type="hinge" name="middle_virtual_joint_2" axis="1 0 0" pos="0.008 0.0818333 -0.01" range="-5 45"/>               
+                        <inertial pos="0.008 0.0818333 -0.01" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                        <!-- Third link -->
+                        <body name="middle_3" pos="0 0 0">
+                            <joint type="hinge" name="middle_joint_2" axis="1 0 0" pos="0.008 0.1018333 -0.01" range="-5 45"/> 
+                            <geom type="mesh" mesh="middle_3" class="class2" mass = "0.00712"/>
+                            <!-- Virtual link for third rolling joint -->
+                            <body name="middle_virtual_link_3" pos="0 0 0"> 
+                                <joint type="hinge" name="middle_virtual_joint_3" axis="1 0 0" pos="0.008 0.1118333 -0.01" range="-5 45"/>               
+                                <inertial pos="0.008 0.1118333 -0.01" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                                <!-- Fourth link -->
+                                <body name="middle_4" pos="0 0 0">
+                                    <joint type="hinge" name="middle_joint_3" axis="1 0 0" pos="0.008 0.1318333 -0.01" range="-5 45"/> 
+                                    <geom type="mesh" mesh="middle_4" class="class2" mass = "0.0065"/>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+
+
+            <!-- 3Dof finger ############################################################################################################-->
+            <geom type="mesh" mesh="pinky_base" mass = "0.1" class="class1"/>
+
+            <!-- First link (pin joint) -->
+            <body name="pinky_1" pos="0 0 0">
+                <joint type="hinge" name="pinky_joint_0" axis="0 0 1" pos="-0.0275095 0.0250203 0" range="0 120" damping="0.25"/> 
+                <geom type="mesh" mesh="pinky_1" class="class2" mass = "0.0061"/>
+                <!-- Virtual link for first rolling joint -->
+                <body name="pinky_virtual_link_1" pos="0 0 0"> 
+                    <joint type="hinge" name="pinky_virtual_joint_1" axis="1 0 0" pos="-0.0305095 0.0350203 -0.0108" range="-5 60" damping="0.25"/>               
+                    <inertial pos="-0.0305095 0.0350203 -0.0108" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                    <!-- Second link -->
+                    <body name="pinky_2" pos="0 0 0">
+                        <joint type="hinge" name="pinky_joint_1" axis="1 0 0" pos="-0.0305095 0.0550203 -0.0108" range="-5 60" damping="0.25"/> 
+                        <geom type="mesh" mesh="pinky_2" class="class2" mass = "0.0095"/>
+                        <!-- Virtual link for second rolling joint -->
+                        <body name="pinky_virtual_link_2" pos="0 0 0"> 
+                            <joint type="hinge" name="pinky_virtual_joint_2" axis="1 0 0" pos="-0.0305095 0.0800203 -0.0108" range="-5 45"/>               
+                            <inertial pos="-0.0305095 0.0800203 -0.0108" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                            <!-- Third link -->
+                            <body name="pinky_3" pos="0 0 0">
+                                <joint type="hinge" name="pinky_joint_2" axis="1 0 0" pos="-0.0305095 0.1000203 -0.0108" range="-5 45"/> 
+                                <geom type="mesh" mesh="pinky_3" class="class2" mass = "0.00712"/>
+                                <!-- Virtual link for third rolling joint -->
+                                <body name="pinky_virtual_link_3" pos="0 0 0"> 
+                                    <joint type="hinge" name="pinky_virtual_joint_3" axis="1 0 0" pos="-0.0305095 0.1100203 -0.0108" range="-5 45"/>               
+                                    <inertial pos="-0.0305095 0.1100203 -0.0108" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                                    <!-- Fourth link -->
+                                    <body name="pinky_4" pos="0 0 0">
+                                        <joint type="hinge" name="pinky_joint_3" axis="1 0 0" pos="-0.032 0.1300203 -0.0108" range="-5 45"/> 
+                                        <geom type="mesh" mesh="pinky_4" class="class2" mass = "0.0065"/>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+
+
+            <!-- Thumb 4Dof finger ############################################################################################################-->
+            <!-- First link dynamixel and thumb0 (pin joint ) -->
+            <body name="dynamixel_thumb" pos="0 0 0">
+                <joint type="hinge" name="thumb_joint_0" axis="0 0 1" pos="0 0 0" range="-30 90" damping="0.5"/> 
+                <geom type="mesh" mesh="dynamixel" class="class2" mass = "0.075"/>
+                <geom type="mesh" mesh="thumb_1" class="class2" mass = "0.035"/>
+    
+                <!-- Second link -->
+                <body name="thumb_2" pos="0 0 0">
+                    <joint type="hinge" name="thumb_joint_1" axis="0 1 0" pos="0.0 -0.045 0.0065" range="-90 90" damping="0.5"/> 
+                    <geom type="mesh" mesh="thumb_2" class="class2" mass = "0.015"/>
+                    <!-- Virtual link for first rolling joint -->
+                    <body name="thumb_virtual_link_2" pos="0 0 0"> 
+                        <joint type="hinge" name="thumb_virtual_joint_2" axis="-1 0 0" pos="-0.008 -0.0605 0.0265" range="-5 45"/>               
+                        <inertial pos="-0.008 -0.0605 0.0265" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                        <!-- Third link -->
+                        <body name="thumb_3" pos="0 0 0">
+                            <joint type="hinge" name="thumb_joint_2" axis="-1 0 0" pos="-0.008 -0.0605 0.0465" range="-5 45"/> 
+                            <geom type="mesh" mesh="thumb_3" class="class2" mass = "0.012"/>
+                            <!-- Virtual link for second rolling joint -->
+                            <body name="thumb_virtual_link_3" pos="0 0 0"> 
+                                <joint type="hinge" name="thumb_virtual_joint_3" axis="-1 0 0" pos="-0.008 -0.0606 0.0765" range="-5 45"/>               
+                                <inertial pos="-0.008 -0.0606 0.0765" mass="1e-9" diaginertia="1e-15 1e-15 1e-15" /> 
+                                <!-- Fourth link -->
+                                <body name="thumb_4" pos="0 0 0">
+                                    <joint type="hinge" name="thumb_joint_3" axis="-1 0 0" pos="-0.008 -0.0606 0.0965" range="-5 45"/> 
+                                    <geom type="mesh" mesh="thumb_4" class="class2" mass = "0.012"/>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <!-- neighboring bodies are excluded from contact calculation -->
+    <contact>
+        <!-- pointer -->
+        <exclude body1="Palm" body2="pointer_2"/>
+        <exclude body1="Palm" body2="pointer_virtual_link_1"/>
+        <exclude body1="pointer_2" body2="pointer_virtual_link_1"/>
+
+        <exclude body1="pointer_2" body2="pointer_3"/>
+        <exclude body1="pointer_2" body2="pointer_virtual_link_2"/>
+        <exclude body1="pointer_3" body2="pointer_virtual_link_2"/>
+
+        <exclude body1="pointer_3" body2="pointer_4"/>
+        <exclude body1="pointer_3" body2="pointer_virtual_link_3"/>
+        <exclude body1="pointer_4" body2="pointer_virtual_link_3"/>
+
+        <!-- middle -->
+        <exclude body1="Palm" body2="middle_2"/>
+        <exclude body1="Palm" body2="middle_virtual_link_1"/>
+        <exclude body1="middle_2" body2="middle_virtual_link_1"/>
+
+        <exclude body1="middle_2" body2="middle_3"/>
+        <exclude body1="middle_2" body2="middle_virtual_link_2"/>
+        <exclude body1="middle_3" body2="middle_virtual_link_2"/>
+
+        <exclude body1="middle_3" body2="middle_4"/>
+        <exclude body1="middle_3" body2="middle_virtual_link_3"/>
+        <exclude body1="middle_4" body2="middle_virtual_link_3"/>
+
+        <!-- pinky -->
+        <exclude body1="Palm" body2="pinky_1"/>
+
+        <exclude body1="pinky_1" body2="pinky_2"/>
+        <exclude body1="pinky_1" body2="pinky_virtual_link_1"/>
+        <exclude body1="pinky_2" body2="pinky_virtual_link_1"/>
+
+        <exclude body1="pinky_2" body2="pinky_3"/>
+        <exclude body1="pinky_2" body2="pinky_virtual_link_2"/>
+        <exclude body1="pinky_3" body2="pinky_virtual_link_2"/>
+
+        <exclude body1="pinky_3" body2="pinky_4"/>
+        <exclude body1="pinky_3" body2="pinky_virtual_link_3"/>
+        <exclude body1="pinky_4" body2="pinky_virtual_link_3"/>
+
+        <!-- thumb -->
+        <exclude body1="Palm" body2="dynamixel_thumb"/>
+
+        <exclude body1="dynamixel_thumb" body2="thumb_2"/>
+
+        <exclude body1="thumb_2" body2="thumb_3"/>
+        <exclude body1="thumb_2" body2="thumb_virtual_link_2"/>
+        <exclude body1="thumb_3" body2="thumb_virtual_link_2"/>
+
+        <exclude body1="thumb_3" body2="thumb_4"/>
+        <exclude body1="thumb_3" body2="thumb_virtual_link_3"/>
+        <exclude body1="thumb_4" body2="thumb_virtual_link_3"/>
+    </contact>
+
+
+    <tendon >
+        <!-- For rolling contact joints: Constrain virtual joint x to have the same angle as joint x -->
+        <!-- Same for underactuated finger tips -->
+
+        <!-- pointer -->
+        <!-- limited="true" range="-0.001 0.001 -->
+        <fixed name="constraint_pointer_joint_1">
+            <joint joint="pointer_virtual_joint_1" coef="1"/>
+            <joint joint="pointer_joint_1" coef="-1"/>
+        </fixed>
+        <fixed name="constraint_pointer_joint_2">
+            <joint joint="pointer_virtual_joint_2" coef="1"/>
+            <joint joint="pointer_joint_2" coef="-1"/>
+        </fixed>
+        <fixed name="pointer_underactuation">
+            <joint joint="pointer_joint_2" coef="1"/>
+            <joint joint="pointer_virtual_joint_3" coef="-1"/>
+        </fixed>
+        <fixed name="constraint_pointer_joint_3">
+            <joint joint="pointer_virtual_joint_3" coef="1"/>
+            <joint joint="pointer_joint_3" coef="-1"/>
+        </fixed>
+
+
+        <!-- middle -->
+        <fixed name="constraint_middle_joint_1">
+            <joint joint="middle_virtual_joint_1" coef="1"/>
+            <joint joint="middle_joint_1" coef="-1"/>
+        </fixed>
+        <fixed name="constraint_middle_joint_2">
+            <joint joint="middle_virtual_joint_2" coef="1"/>
+            <joint joint="middle_joint_2" coef="-1"/>
+        </fixed>
+        <fixed name="middle_underactuation">
+            <joint joint="middle_joint_2" coef="1"/>
+            <joint joint="middle_virtual_joint_3" coef="-1"/>
+        </fixed>
+        <fixed name="constraint_middle_joint_3">
+            <joint joint="middle_virtual_joint_3" coef="1"/>
+            <joint joint="middle_joint_3" coef="-1"/>
+        </fixed>
+
+
+        <!-- pinky -->
+        <fixed name="constraint_pinky_joint_1">
+            <joint joint="pinky_virtual_joint_1" coef="1"/>
+            <joint joint="pinky_joint_1" coef="-1"/>
+        </fixed>
+        <fixed name="constraint_pinky_joint_2">
+            <joint joint="pinky_virtual_joint_2" coef="1"/>
+            <joint joint="pinky_joint_2" coef="-1"/>
+        </fixed>
+        <fixed name="pinky_underactuation">
+            <joint joint="pinky_joint_2" coef="1"/>
+            <joint joint="pinky_virtual_joint_3" coef="-1"/>
+        </fixed>
+        <fixed name="constraint_pinky_joint_3">
+            <joint joint="pinky_virtual_joint_3" coef="1"/>
+            <joint joint="pinky_joint_3" coef="-1"/>
+        </fixed>
+
+
+        <!-- thumb -->
+        <fixed name="constraint_thumb_joint_2">
+            <joint joint="thumb_virtual_joint_2" coef="1"/>
+            <joint joint="thumb_joint_2" coef="-1"/>
+        </fixed>
+        <fixed name="constraint_thumb_joint_3">
+            <joint joint="thumb_virtual_joint_3" coef="1"/>
+            <joint joint="thumb_joint_3" coef="-1"/>
+        </fixed>
+    </tendon>
+
+
+    <actuator>
+        <!-- for rolling contact: ctrl in radiant / 2 (because actually 2 joints per real joint) -->
+
+        <!-- pointer -->
+        <position joint="pointer_joint_1" kp="2" ctrlrange="0 1.04 "/> 
+        <position joint="pointer_joint_2" kp="1" ctrlrange="0 0.7854 "/> 
+
+        <!-- middle -->
+        <position joint="middle_joint_1" kp="2" ctrlrange="0 1.04  "/> 
+        <position joint="middle_joint_2" kp="1" ctrlrange="0 0.7854 "/> 
+
+        <!-- pinky -->
+        <position joint="pinky_joint_0" kp="1" ctrlrange="0 2 "/>  <!-- pin -->
+        <position joint="pinky_joint_1" kp="2" ctrlrange="0 1.04  "/> 
+        <position joint="pinky_joint_2" kp="1" ctrlrange="0 0.7854 "/> 
+
+        <!-- thumb -->
+        <position joint="thumb_joint_0" kp="4" ctrlrange="-0.5236 1.5708"/>  <!-- pin -->
+        <position joint="thumb_joint_1" kp="4" ctrlrange="-1.4 1.4"/> <!-- pin -->
+        <position joint="thumb_joint_2" kp="1" ctrlrange="0 0.7854"/> 
+        <position joint="thumb_joint_3" kp="1" ctrlrange="0 0.7854"/> 
+    </actuator>
+</mujoco>
