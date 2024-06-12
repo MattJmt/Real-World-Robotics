@@ -1,4 +1,4 @@
-# Real-World-Robotics
+# Real-World Robotics
 In this semester course, students were grouped in teams of 4/5 to design and control an anthropomorphic robotic hand. My team and I designed an ambidextrous robotic hand, characterised by a four degree of freedom thumb. This could prove useful for ambidextrous tasks by preventing the robotic arm it is attached to from having to reconfigure itself in space.
 
 <p align="center">
