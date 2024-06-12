@@ -10,6 +10,7 @@ The teleoperation of the hand was done using a Luxonis OAK-D Pro stereo camera a
 <img src="https://github.com/MattJmt/Real-World-Robotics/blob/main/figures/rwr_teleop_cube.gif" width="250"/> <img src="https://github.com/MattJmt/Real-World-Robotics/blob/main/figures/rwr_teleop_fidget.gif" width="250"/>
 
 The highlights of the "Challenge Day", in which the hand performs reinforcement and teleoperation tasks, can be found [here](https://www.youtube.com/watch?v=-YM1Ik7tEGE&ab_channel=MatthiasJammot).
+
 <img src="https://github.com/MattJmt/Real-World-Robotics/blob/main/figures/hand%20diagram.png" width="350"/>
 
 More information on this project is available in the "RWR_report".
